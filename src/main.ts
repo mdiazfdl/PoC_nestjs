@@ -1,3 +1,4 @@
+import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AppModule } from './app.module';
@@ -9,10 +10,11 @@ async function bootstrap() {
     .setTitle('PoC NestJS')
     .setDescription('Documentacion de la API para la prueba de conceptos en NestJS ')
     .setVersion('1.0')
-    .addTag('')
+    .addTag('items')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
+  app.useGlobalPipes(new ValidationPipe())
   
   await app.listen(3000);
 }
