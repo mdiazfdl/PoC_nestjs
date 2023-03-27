@@ -7,6 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const config = new DocumentBuilder()
+    .addBearerAuth()
     .setTitle('PoC NestJS')
     .setDescription('Documentacion de la API para la prueba de conceptos en NestJS ')
     .setVersion('1.0')
@@ -17,7 +18,7 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
   app.useGlobalPipes(new ValidationPipe())
-  
+
   await app.listen(3000);
 }
 bootstrap();

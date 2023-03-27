@@ -14,19 +14,17 @@ export class ItemsService {
     return this.itemsModele.create(createItemDto)
   }
 
-  findAll() {
+  async findAll() {
     return this.itemsModele.find()
   }
 
-  findOne(id: number) {
-    return this.itemsModele.findById(id)
+  async findOne(id: number) {
+    return //this.itemsModele.findById(id)
   }
 
-  update(id: number, updateItemDto: UpdateItemDto) {
-    return `This action updates a #${id} item`;
-  }
+  async update(id: String, updateItemDto: UpdateItemDto) {}
 
-  remove(id: number) {
-    return `This action removes a #${id} item`;
+  async remove(id: number) {
+    return //this.itemsModele.remove(id);
   }
 }
