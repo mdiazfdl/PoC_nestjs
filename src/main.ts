@@ -11,6 +11,8 @@ async function bootstrap() {
     .setDescription('Documentacion de la API para la prueba de conceptos en NestJS ')
     .setVersion('1.0')
     .addTag('items')
+    .addTag('auth')
+    .addTag('users')
     .build();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('docs', app, document);
